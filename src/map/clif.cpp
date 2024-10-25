@@ -11566,7 +11566,7 @@ void clif_parse_Emotion(int fd, map_session_data *sd){
 
 	int emoticon = RFIFOB(fd,packet_db[RFIFOW(fd,0)].pos[0]);
 
-	if (battle_config.basic_skill_check == 0 || pc_checkskill(sd, NV_BASIC) >= 2 || pc_checkskill(sd, SU_BASIC_SKILL) >= 1) {
+	if (battle_config.basic_skill_check == 0 || pc_checkskill(sd, NV_BASIC) >= 1 || pc_checkskill(sd, SU_BASIC_SKILL) >= 1) {
 		if (emoticon == ET_CHAT_PROHIBIT) {// prevent use of the mute emote [Valaris]
 			clif_skill_fail( *sd, 1, USESKILL_FAIL_LEVEL, 1 );
 			return;
@@ -11667,7 +11667,7 @@ void clif_parse_ActionRequest_sub( map_session_data& sd, uint8 action_type, int 
 		unit_attack(&sd.bl, target_id, action_type != 0);
 		break;
 	case DMG_SIT_DOWN: // sitdown
-		if (battle_config.basic_skill_check && pc_checkskill(&sd, NV_BASIC) < 3 && pc_checkskill(&sd, SU_BASIC_SKILL) < 1) {
+		if (battle_config.basic_skill_check && pc_checkskill(&sd, NV_BASIC) >= 1 && pc_checkskill(&sd, SU_BASIC_SKILL) < 1) {
 			clif_skill_fail( sd, 1, USESKILL_FAIL_LEVEL, 2 );
 			break;
 		}
@@ -12305,7 +12305,7 @@ void clif_parse_CreateChatRoom(int fd, map_session_data* sd)
 
 	if (sd->sc.getSCE(SC_NOCHAT) && sd->sc.getSCE(SC_NOCHAT)->val1&MANNER_NOROOM)
 		return;
-	if(battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) < 4 && pc_checkskill(sd, SU_BASIC_SKILL) < 1) {
+	if(battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) >= 1 && pc_checkskill(sd, SU_BASIC_SKILL) < 1) {
 		clif_skill_fail( *sd, 1, USESKILL_FAIL_LEVEL, 3 );
 		return;
 	}
@@ -12431,7 +12431,7 @@ void clif_parse_TradeRequest(int fd,map_session_data *sd)
 		}
 	}
 
-	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) < 1 && pc_checkskill(sd, SU_BASIC_SKILL) < 1) {
+	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) >= 1 && pc_checkskill(sd, SU_BASIC_SKILL) < 1) {
 		clif_skill_fail( *sd, 1 );
 		return;
 	}
@@ -13650,7 +13650,7 @@ void clif_parse_CreateParty(int fd, map_session_data *sd){
 		clif_displaymessage(fd, msg_txt(sd,227));
 		return;
 	}
-	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) < 7 && pc_checkskill(sd, SU_BASIC_SKILL) < 1 ) {
+	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) >= 1 && pc_checkskill(sd, SU_BASIC_SKILL) < 1 ) {
 		clif_skill_fail( *sd, 1, USESKILL_FAIL_LEVEL, 4 );
 		return;
 	}
@@ -13674,7 +13674,7 @@ void clif_parse_CreateParty2(int fd, map_session_data *sd){
 		clif_displaymessage(fd, msg_txt(sd,227));
 		return;
 	}
-	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) < 7 && pc_checkskill(sd, SU_BASIC_SKILL) < 1 ) {
+	if( battle_config.basic_skill_check && pc_checkskill(sd,NV_BASIC) >= 1 && pc_checkskill(sd, SU_BASIC_SKILL) < 1 ) {
 		clif_skill_fail( *sd, 1, USESKILL_FAIL_LEVEL, 4 );
 		return;
 	}

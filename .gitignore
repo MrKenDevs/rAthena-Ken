@@ -149,3 +149,5 @@ Thumbs.db
 
 # generated files
 generated
+conf/inter_athena.conf
+db/re/skill_tree_ori.yml

@@ -96,8 +96,8 @@ typedef uint32 t_itemid;
 #define MAX_WALK_SPEED 1000 ///Max walk speed
 #define MAX_STORAGE 600 ///Max number of storage slots a player can have
 #define MAX_GUILD_STORAGE 600 ///Max number of storage slots a guild
-#define MAX_PARTY 12 ///Max party member
-#define MAX_GUILD 16+10*6	///Increased max guild members +6 per 1 extension levels [Lupus]
+#define MAX_PARTY 8 ///Max party member
+#define MAX_GUILD 32+10*6	///Increased max guild members +6 per 1 extension levels [Lupus]
 #define MAX_GUILDPOSITION 20	///Increased max guild positions to accomodate for all members [Valaris] (removed) [PoW]
 #define MAX_GUILDEXPULSION 32 ///Max Guild expulsion
 #define MAX_GUILDALLIANCE 16 ///Max Guild alliance
@@ -130,8 +130,8 @@ enum e_enchantgrade : uint16{
 };
 
 #ifdef RENEWAL
-	#define MAX_WEAPON_LEVEL 5
-	#define MAX_ARMOR_LEVEL 2
+	#define MAX_WEAPON_LEVEL 8
+	#define MAX_ARMOR_LEVEL 8
 	#define MAX_ENCHANTGRADE ENCHANTGRADE_A
 #else
 	#define MAX_WEAPON_LEVEL 4
@@ -165,7 +165,7 @@ const t_itemid WEDDING_RING_F = 2635;
 //Pincode Length
 #define PINCODE_LENGTH 4
 
-#define MAX_FRIENDS 40
+#define MAX_FRIENDS 80
 #define MAX_MEMOPOINTS 3
 #define MAX_SKILLCOOLDOWN 20
 

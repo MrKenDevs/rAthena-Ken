@@ -4583,6 +4583,26 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	}
 
 	switch(skill_id) {
+
+	case ALL_CLEAVE:
+		skillratio += 100 * skill_lv; // Midnight Legends Customs
+		break;
+	case ALL_SWING:
+		skillratio += 50 * skill_lv; // Midnight Legends Customs
+		break;
+	case ALL_LUNGE:
+		skillratio += 25 * skill_lv; // Midnight Legends Customs
+		break;
+	case ALL_PIERCE:
+		skillratio += 20 * skill_lv; // Midnight Legends Customs
+		break;
+	case ALL_PUMMEL:
+		skillratio += 10 * skill_lv; // Midnight Legends Customs
+		break;
+	case THF_FLYINGDAGGER:
+		skillratio += 25 * skill_lv; // Midnight Legends Customs
+		break;
+
 		case SM_BASH:
 		case MS_BASH:
 			skillratio += 30 * skill_lv;

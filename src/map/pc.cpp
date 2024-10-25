@@ -8668,7 +8668,10 @@ uint32 PlayerStatPointDatabase::pc_gets_trait_point(uint16 level) {
 
 #ifdef RENEWAL_STAT
 /// Renewal status point cost formula
-#define PC_STATUS_POINT_COST(low) (((low) < 100) ? (2 + ((low) - 1) / 10) : (16 + 4 * (((low) - 100) / 5)))
+// Original Code:
+//#define PC_STATUS_POINT_COST(low) (((low) < 100) ? (2 + ((low) - 1) / 10) : (16 + 4 * (((low) - 100) / 5)))
+#define PC_STATUS_POINT_COST(low) ((low < 80 ) ? ( 1 + ((low)) / 20) : (6))
+
 #else
 /// Pre-Renewal status point cost formula
 #define PC_STATUS_POINT_COST(low) (( 1 + ((low) + 9) / 10 ))
@@ -9366,6 +9369,22 @@ int pc_resetskill(map_session_data* sd, int flag)
 
 		// do not reset basic skill
 		if (skill_id == NV_BASIC && (sd->class_&MAPID_UPPERMASK) != MAPID_NOVICE )
+			continue;
+		if (skill_id == BS_GREED && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == WZ_ESTIMATION && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == AL_RUWACH && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == AL_INCAGI && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == TF_HIDING && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == TF_PICKSTONE && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == TF_THROWSTONE && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;
+		if (skill_id == NV_FIRSTAID && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
 			continue;
 
 		if( sd->status.skill[idx].flag == SKILL_FLAG_PERM_GRANTED )
@@ -14229,7 +14248,7 @@ uint64 PlayerStatPointDatabase::parseBodyNode(const ryml::NodeRef& node) {
  * Generate the remaining parts of the db if necessary.
  */
 void PlayerStatPointDatabase::loadingFinished(){
-	const uint16 trait_start_level = 200;
+	const uint16 trait_start_level = 300;
 	std::shared_ptr<s_statpoint_entry> level_one = this->find( 1 );
 
 	if( level_one == nullptr ){

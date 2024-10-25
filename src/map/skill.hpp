@@ -1512,6 +1512,35 @@ enum e_skill {
 	NPC_GROGGY_ON,
 	NPC_RESET_EFST, //793
 
+	// Midnight Legends Custom
+	// Passive Skills
+
+	PS_DAGGER = 800,
+	PS_SWORD,
+	PS_TH,
+	PS_DW,
+	PS_MATKNOW,
+	PS_ELEKNOW,
+	PS_LIGHTARMOR,
+	PS_MEDIUMARMOR,
+	PS_HEAVYARMOR,
+	PS_SHIELD,
+
+	// Generalized Skills
+	ALL_CLEAVE,
+	ALL_SWING,
+	ALL_LUNGE,
+	ALL_PUMMEL,
+	ALL_PIERCE,
+
+	// Midnight Legends Swordman
+	SWM_TAUNT,
+	SWM_SHIELDBLOCK,
+
+	// Midnight Legends Thief
+	THF_FLYINGDAGGER,
+
+
 	KN_CHARGEATK = 1001,
 	CR_SHRINK,
 	AS_SONICACCEL,
